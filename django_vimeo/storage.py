@@ -145,4 +145,8 @@ class VimeoFileStorage(Storage):
         return uploaded_uri
 
     def _vimeo_upload(self, file_path):
-        self.client.upload(file_path, self.upload_options)
+        kwargs = {}
+        upload_options = self.upload_options
+        if upload_options:
+            kwargs['data'] = upload_options
+        self.client.upload(file_path, **kwargs)
