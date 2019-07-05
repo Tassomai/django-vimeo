@@ -129,7 +129,7 @@ class VimeoFileStorage(Storage):
         uploaded_uri = None
         if hasattr(content, 'temporary_file_path'):
             tmp_file_path = content.temporary_file_path()
-            uploaded_uri = self.client.upload(tmp_file_path)
+            uploaded_uri = self._vimeo_upload(tmp_file_path)
         else:
             try:
                 tmp_file = NamedTemporaryFile(delete=False)
@@ -138,7 +138,10 @@ class VimeoFileStorage(Storage):
                         continue
                     tmp_file.write(chunk)
                 tmp_file.close()
-                uploaded_uri = self.client.upload(tmp_file.name)
+                uploaded_uri = self._vimeo_upload(tmp_file.name)
             finally:
                 os.unlink(tmp_file.name)
         return uploaded_uri
+
+    def _vimeo_upload(self, file_path):
+        self.client.upload(file_path)
