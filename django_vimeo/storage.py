@@ -17,7 +17,7 @@ from .exceptions import UnknownIdException
 
 @deconstructible
 class VimeoFileStorage(Storage):
-    def __init__(self, client_id=None, client_secret=None, access_token=None):
+    def __init__(self, client_id=None, client_secret=None, access_token=None, upload_options=None):
         if not client_id:
             client_id = getattr(settings, 'VIMEO_CLIENT_ID', None)
         if not client_secret:
@@ -31,6 +31,7 @@ class VimeoFileStorage(Storage):
                                   'https://vimeo.com/api/oembed.json')
         self.video_url_pattern = getattr(settings, 'VIMEO_VIDEO_URL_PATTERN',
                                          'https://vimeo.com/{}')
+        self.upload_options = upload_options
 
     @cached_property
     def client(self):
@@ -144,4 +145,4 @@ class VimeoFileStorage(Storage):
         return uploaded_uri
 
     def _vimeo_upload(self, file_path):
-        self.client.upload(file_path)
+        self.client.upload(file_path, self.upload_options)
