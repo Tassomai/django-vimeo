@@ -30,7 +30,7 @@ setup(
     ],
     keywords=['vimeo', 'video'],
     install_requires=[
-        'PyVimeo >=0.3.2, <0.4',
+        'PyVimeo >=0.3.2, <1.1',
         'Django >=1.5, <=1.11',
         'xxhash >=0.4.3, <0.5',
     ],

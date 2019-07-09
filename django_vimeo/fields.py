@@ -61,8 +61,8 @@ class VimeoField(models.FileField):
     """
     attr_class = VimeoFieldFile
 
-    def __init__(self, *args, **kwargs):
-        defaults = {'storage': VimeoFileStorage()}
+    def __init__(self, *args, upload_options=None, **kwargs):
+        defaults = {'storage': VimeoFileStorage(upload_options=upload_options)}
         defaults.update(kwargs)
         super(VimeoField, self).__init__(*args, **defaults)
 
