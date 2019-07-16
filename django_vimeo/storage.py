@@ -149,4 +149,4 @@ class VimeoFileStorage(Storage):
         upload_options = self.upload_options
         if upload_options:
             kwargs['data'] = upload_options
-        self.client.upload(file_path, **kwargs)
+        return self.client.upload(file_path, **kwargs)
