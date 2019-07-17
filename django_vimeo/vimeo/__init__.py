@@ -3,7 +3,7 @@
 
 from __future__ import absolute_import
 
-version = (0, 3, 10)
+version = (0, 99, 999)
 
 from .client import VimeoClient
 from . import exceptions
