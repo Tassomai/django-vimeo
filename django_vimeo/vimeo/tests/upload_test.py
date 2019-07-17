@@ -1,4 +1,4 @@
-from vimeo.upload import UploadVideoMixin
+from django_vimeo.vimeo.upload import UploadVideoMixin
 
 
 def test_apply_chunk_size_rules():

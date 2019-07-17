@@ -8,7 +8,7 @@ from django.conf import settings
 from django.core.files.storage import Storage
 from django.utils.deconstruct import deconstructible
 from django.utils.functional import cached_property
-from vimeo import VimeoClient
+from django_vimeo.vimeo import VimeoClient
 
 from .cache import cache_it
 from .exceptions import SpaceNotEnoughtException
