@@ -97,8 +97,7 @@ class VimeoFileStorage(Storage):
         res = self.client.get(name)
         self._raise_for_status(res)
         res = res.json()
-        large_files = sorted(res.get('files'), key=operator.itemgetter('size'), reverse=True)
-        return large_files[0].get('size', 0) if large_files else 0
+        return res.get('upload', {}).get('size') or 0
 
     def url(self, name):
         res = self.client.get(name)
