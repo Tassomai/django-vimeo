@@ -103,8 +103,7 @@ class VimeoFileStorage(Storage):
         res = self.client.get(name)
         res.raise_for_status()
         res = res.json()
-        large_files = sorted(res.get('files'), key=operator.itemgetter('size'), reverse=True)
-        return large_files[0].get('link_secure') if large_files else None
+        return res.get('link')
 
     def accessed_time(self, name):
         res = self.client.get(name)
