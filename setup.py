@@ -31,7 +31,7 @@ setup(
     keywords=['vimeo', 'video'],
     install_requires=[
         'PyVimeo >=0.3.2, <1.1',
-        'Django >=1.5, <=1.11',
+        'Django >=1.5, <2.3',
         'xxhash >=0.4.3, <0.5',
     ],
     test_suite='nose.collector',
