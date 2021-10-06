@@ -32,7 +32,7 @@ setup(
     install_requires=[
         'requests>=2.4.0',
         'tuspy==0.2.4',
-        'Django >=1.5, <=2.0',
+        'Django >=1.5, <2.1',
         'xxhash >=0.4.3, <0.5',
     ],
     test_suite='nose.collector',
